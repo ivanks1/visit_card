@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"> <!-- подключение CSS -->
+    <script src="{% static 'js/home.js' %}"></script> <!-- подключение JS -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}"> <!-- подключение иконки -->
+    <title>Apex Web</title>
+</head>
+
+<body>
+
+    <header class="header"> <!-- шапка -->
+        <img src="{% static 'images/favicon.png' %}" alt="logo" class="logo">
+        <h1>Apex Web</h1>
+        <nav class="nav">
+            <a href="/">Главная</a>
+            <a href="/about">О нас</a>
+            <a href="/services">Мои услуги</a>
+            <a href="/contact">Контакты</a>
+        </nav>
+
+        <div class="language-wrapper">
+            <button type="button" class="language" aria-label="Выбрать язык" aria-expanded="false">
+                <img class="lang-icon" src="{% static 'images/lang_icon.png' %}" alt="language">
+            </button>
+
+            <section class="lang-choice" hidden>
+                <div class="lang-header">Выберите язык</div>
+                <button type="button" class="lang-option active" data-lang="ru">
+                    <span class="flag">RU</span>
+                    <span class="label">Русский</span>
+                </button>
+                <button type="button" class="lang-option" data-lang="en">
+                    <span class="flag">EN</span>
+                    <span class="label">English</span>
+                </button>
+                <button type="button" class="lang-option" data-lang="kz">
+                    <span class="flag">KZ</span>
+                    <span class="label">Қазақ</span>
+                </button>
+            </section>
+        </div>
+    </header>
+
+    
+
+</body>
+
+</html>

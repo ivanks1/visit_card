@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Google Sans', sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 30px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    background-color: #F8F8F8;
+}
+
+.logo { width: 60px; height: 60px; margin: 0 15px; }
+.header h1 { margin: 0 20px 0 10px; font-size: 30px; color: #333; transition: all 0.3s;}
+.nav { display: flex; align-items: center; gap: 20px; }
+.header a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.header a:hover, .header h1:hover { color: #F33; transform: scale(1.1); }
+.language-wrapper { position: relative; margin-left: auto; }
+.language {
+    display: flex;
+    width: 60px; height: 60px;
+    align-items: center; justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.language:hover { background: #999; }
+.lang-icon { width: 30px; height: 30px; }
+.lang-choice {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 18px;
+    box-shadow: 0 18px 45px #0003;
+    overflow: hidden;
+    z-index: 20;
+    animation: fade-in .2s ease;
+}
+.lang-choice[hidden] { display: none; }
+.lang-choice::before {
+    content: "";
+    position: absolute;
+    top: -8px; right: 22px;
+    width: 16px; height: 16px;
+    background: #fff;
+    transform: rotate(45deg);
+}
+.lang-header { padding: 14px 18px 5px; color: #666; font-size: 14px; font-weight: 700; }
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    background: #fff;
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.lang-option + .lang-option { border-top: 1px solid #eee; }
+.lang-option:hover, .lang-option.active { color: #F33; }
+.lang-option .flag {
+    display: grid;
+    width: 28px; height: 28px;
+    font-size: 12.5px;
+    place-items: center;
+    border-radius: 50%;
+    background: #f2f2f2;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 600;
+}
+.lang-option .label { flex: 1; }
+.lang-option.active .label::after { content: "✓"; margin-left: 10px; }
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
