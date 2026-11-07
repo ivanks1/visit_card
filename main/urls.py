@@ -1,15 +1,11 @@
-from django.contrib import admin 
 from django.urls import path
 from . import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls), # админка
-    path('', views.home, name='home'), # начальная страница
-    
-    path('ru/', views.home_ru, name='home_ru'), 
-    path('en/', views.home_en, name='home_en'), # разные языковые версии сайта
-    path('kz/', views.home_kz, name='home_kz'),
-
-    path('<str:unknown>/', views.page_not_found, name='page_not_found'), # ошибка 404, обязательно в самый конец!
+    path('', views.home, name='home'),
+    path('ru/', views.home, {'language': 'ru'}, name='home_ru'),
+    path('en/', views.home, {'language': 'en'}, name='home_en'),
+    path('kz/', views.home, {'language': 'kz'}, name='home_kz'),
+    path('<path:unknown>', views.page_not_found, name='page_not_found'),
 ]

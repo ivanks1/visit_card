@@ -10,14 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menu.addEventListener('click', (event) => {
         if (!(event.target instanceof Element)) return;
-        const option = event.target.closest('.lang-option');
-        if (!option) return;
-
+        const option = event.target.closest('a.lang-option');
+        if (!option || !['ru', 'en', 'kz'].includes(option.dataset.lang)) return;
         const language = option.dataset.lang;
-        if (!['ru', 'en', 'kz'].includes(language)) return;
-
         document.cookie = `user_language=${language}; max-age=604800; path=/; samesite=lax`;
-        window.location.assign(`/${language}/`);
     });
 
     document.addEventListener('click', (event) => {
@@ -27,5 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
             button.setAttribute('aria-expanded', 'false');
         }
     });
-});
 
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !menu.hidden) {
+            menu.hidden = true;
+            button.setAttribute('aria-expanded', 'false');
+            button.focus();
+        }
+    });
+});

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 — Apex Web</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body class="not-found-page">
+    <main class="not-found">
+        <a class="brand" href="/"><img class="brand-mark" src="{% static 'images/favicon.png' %}" alt=""><span>Apex <span class="brand-light">Web</span></span></a>
+        <p class="not-found-code">404</p>
+        <h1>Page not found</h1>
+        <p>The page you’re looking for doesn’t exist or has moved.</p>
+        <a class="button button-dark" href="/">Back to home <span aria-hidden="true">↗</span></a>
+    </main>
+</body>
+</html>
